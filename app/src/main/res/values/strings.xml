@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Kiss Counter</string>
+    <string name="read_text_file">Read Text File</string>
+    <string name="read_text_file_in_android">Read text File in Android</string>
+</resources>
