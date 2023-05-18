@@ -1,6 +1,9 @@
 package com.example.kisscounter;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -8,8 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView;
@@ -19,22 +25,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void ReadTextFile(View view) throws IOException {
-        String string = "";
-        StringBuilder stringBuilder = new StringBuilder();
-        File sdcard = Environment.getExternalStoragePublicDirectory("Downloads");
-        File file = new File(sdcard,"J.txt");
-        BufferedReader reader = new BufferedReader(new FileReader(file));
-        while (true) {
-            try {
-                if ((string = reader.readLine()) == null) break;
+        try {
+            String downloadsPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
+            String filePath = downloadsPath + File.separator + "J.txt";
+
+            File file = new File(filePath);
+            FileInputStream fis = new FileInputStream(file);
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line).append("\n");
             }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-            stringBuilder.append(string).append(" ");
-            textView.setText(stringBuilder);
+            String fileContents = stringBuilder.toString();
+
+            fis.close();
+
+            TextView textView = findViewById(R.id.textContent);
+            textView.setText(fileContents);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        reader.close();
-        Toast.makeText(getBaseContext(), stringBuilder.toString(), Toast.LENGTH_LONG).show();
     }
 }
