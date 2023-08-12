@@ -23,8 +23,8 @@
         android:onClick="ReadTextFile"
         android:text="@string/read_text_file"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="214dp"
-        tools:layout_editor_absoluteY="958dp" />
+        tools:layout_editor_absoluteX="184dp"
+        tools:layout_editor_absoluteY="460dp" />
 
     <TextView
         android:layout_width="396dp"
@@ -37,6 +37,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/button"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="178dp" />
+        tools:layout_editor_absoluteY="187dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
