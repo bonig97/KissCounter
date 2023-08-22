@@ -23,8 +23,8 @@
         android:onClick="ReadTextFile"
         android:text="@string/read_text_file"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="184dp"
-        tools:layout_editor_absoluteY="460dp" />
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="519dp" />
 
     <TextView
         android:layout_width="396dp"
