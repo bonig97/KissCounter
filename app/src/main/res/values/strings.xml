@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Kiss Counter</string>
-    <string name="read_text_file">Read Text File</string>
-    <string name="read_text_file_in_android">Kiss Counter</string>
+    <string name="open_file_picker">Open File Picker</string>
+    <string name="enter_search_word">Enter search word</string>
+    <string name="search">Search</string>
+    <string name="occurrences_count">Occurrences: %1$d</string>
 </resources>
